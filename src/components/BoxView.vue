@@ -1,7 +1,6 @@
 <template>
   <div class="boxview">
     <div class="portfolio">
-      <!--eslint disable next line-->
       <img :src="image.img" v-for="(image, index) in images" :key="image.id" @click="show(index)">
     </div>
 
@@ -15,23 +14,13 @@
           <a class="prev" @click="prev()">
             <i class="fas fa-chevron-left fa-2x"></i>
           </a>
-          <!--&#10094;-->
+          
           <a class="next" @click="next()">
             <i class="fas fa-chevron-right fa-2x"></i>
           </a>
-          <!--&#10095;-->
         </div>
       </div>
     </div>
-
-    <!--<div class="screen" v-if='visible'>
-            <span class="close cursor" @click="hide">&times;</span>
-            <div class="modal-content">
-                <a class="prev" @click='prev()'>&#10094;</a>
-                <a class="next" @click='next()'>&#10095;</a>
-                <img :src="myImg">
-            </div>
-    </div>-->
   </div>
 </template>
 <script>
@@ -113,14 +102,9 @@ export default {
   background-color: $White;
   border: 1px solid #aaa;
   width: 35%;
-
-  /*padding:30px;*/
   border-radius: 5px;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
   transform: translate(-50%, -50%);
-
-  /*transition smoothly
-  transition: all 1000 ease-out;*/
 
   .wrapper {
     position: relative;
@@ -168,8 +152,8 @@ export default {
   height: 100%;
   width: 100%;
 }
-/*--------------end new modal stuff-------------------------------*/
-
+/*end new modal stuff-*/
+/*mediaqueries*/
 @media (max-width: 1200px) {
   .screen-content {
     width: 45%;

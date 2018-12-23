@@ -8,7 +8,6 @@
   </div>
 </template>
 <script>
-//import Lightbox from "../components/Lightbox.vue"
 import one from "../assets/img/new/one.jpg";
 import two from "../assets/img/new/two.jpg";
 import three from "../assets/img/new/three.jpg";
@@ -79,27 +78,11 @@ export default {
           img: seventeen,
           id: 11
         }
-        /*{
-                      img: fourteen,
-                      id: 13
-                    },
-                    {
-                      img: fifteen,
-                      id: 14
-                    },
-                    {
-                      img: sixteen,
-                      id: 15
-                    }*/
       ]
-      //index: 0,
-      //visible: false,
-      //myImg: ''
     };
   },
   methods: {
     show(index) {
-      //console.log('here');
       this.visible = true;
       this.myImg = this.images[index].img;
     },
