@@ -1,8 +1,8 @@
 <template>
   <div class="gallery">
     <div class="header">
-      <h1>Easy Modal-Lightbox with no CSS frameworks</h1>
-      <h1>Just idiomatic Vue.js javascript, CSSGrid</h1>
+      <h1>Modal-Lightbox with no CSS frameworks</h1>
+      <h1>Just idiomatic Vue.js JavaScript and modern CSS</h1>
     </div>
     <boxview :images="images"/>
   </div>
