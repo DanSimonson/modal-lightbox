@@ -1,7 +1,7 @@
 <template>
   <div class="boxview">
     <div class="portfolio">
-      <img :src="image.img" v-for="(image, index) in images" :key="image.id" @click="show(index)">
+      <img :src="image.img" @click="show(index)" v-for="(image, index) in images" :key="image.id">
     </div>
 
     <div class="modal-screen" v-if="visible">
@@ -31,7 +31,6 @@ export default {
     return {
       index: 0,
       visible: false,
-      display: false,
       myImg: ""
     };
   },
@@ -45,12 +44,6 @@ export default {
       this.visible = false;
       this.index = 0;
     },
-    hasNext() {
-      return this.index + 1 < this.images.length;
-    },
-    hasPrev() {
-      return this.index - 1 >= 0;
-    },
     prev() {
       if (this.hasPrev()) {
         this.index -= 1;
@@ -62,6 +55,12 @@ export default {
         this.index += 1;
         this.myImg = this.images[this.index].img;
       }
+    },
+    hasNext() {
+      return this.index + 1 < this.images.length;
+    },
+    hasPrev() {
+      return this.index - 1 >= 0;
     }
   }
 };
@@ -73,7 +72,7 @@ export default {
 .portfolio {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin-bottom: 1rem;
 }
 
@@ -92,16 +91,27 @@ export default {
   text-align: center;
   padding: 32px;
   background: $Orange;
-  z-index: 1;
+  /*z-index: 1;*/
 }
 /*new modal*/
+.modal-screen::before {
+  content: "";
+  position: fixed;
+  /*display:none;*/
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
 .screen-content {
   position: fixed;
   left: 50%;
   top: 50%;
   background-color: $White;
   border: 1px solid #aaa;
-  width: 35%;
+  //width: 30%;
   border-radius: 5px;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
   transform: translate(-50%, -50%);
@@ -141,19 +151,14 @@ export default {
   cursor: pointer;
   color: $Light-green;
 }
-
-.modal-screen::before {
-  content: "";
-  position: fixed;
-  /*display:none;*/
-  background-color: rgba(0, 0, 0, 0.8);
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-}
 /*end new modal stuff-*/
-/*mediaqueries*/
+
+/*media queries*/
+@media (max-width: 1600px) {
+  .screen-content {
+    width: 35%;
+  }
+}
 @media (max-width: 1200px) {
   .screen-content {
     width: 45%;
@@ -165,11 +170,7 @@ export default {
     width: 48%;
   }
 }
-@media (max-width: 900px) {
-  .screen-content {
-    width: 50%;
-  }
-}
+
 @media (max-width: 900px) {
   .screen-content {
     width: 50%;
